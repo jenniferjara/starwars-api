@@ -1,15 +1,17 @@
-	var template = '<div class="col s12 m4">'+
-						'<div class="card horizontal">'+
-							'<div class="card-stacked">'+
-								'<div class="card-content yellow darken-1">'+
-									'<p class="white-text">Hi, my name <strong>{{name}}</strong>.</p>'+
-								'</div>'+
-								'<div class="card-action">'+
-									'<a class="about yellow-text darken-1" data-show-url="{{url}}">See more about me</a>'+
-								'</div>'+
+var template = '<div class="col s12 m4">'+
+					'<div class="card horizontal">'+
+						'<div class="card-stacked">'+
+							'<div class="card-content yellow darken-1">'+
+								'<p class="white-text">Hi, my name <strong>{{name}}</strong>.</p>'+
+							'</div>'+
+							'<div class="card-action">'+
+								'<a class="about yellow-text darken-1" data-show-url="{{url}}">See more about me</a>'+
 							'</div>'+
 						'</div>'+
-					'</div>';
+					'</div>'+
+				'</div>';
+
+var opciones ='<option value="{{num}}">{{name}}</option>';
 
 var datos = function(response){
 	$("#total").text(response.results.length);
@@ -43,10 +45,33 @@ var datosPersonaje = function(e){
 	e.preventDefault();
 	alert("Hola!");
 }
+var especies = function(res){
+	console.log(res);
+	var spe = "";
+	$.each(res.results, function(i, espec){
+		var d = "";
+		for(var i=0, m=espec.people.length; i<m ;i++){
+			d += espec.people[i].substr(-3);
+		}
+		spe += opciones
+		.replace("{{num}}", d)
+		.replace("{{name}}", espec.name);
+	});
+	console.log(spe);
+	$("#mostrarEsp").append(spe);
+}
+var mostrarPersonaje = function(){
+	$("select option:selected").each(function() {
+      var n = "http://swapi.co/api/people/" + $(this).val();
+      console.log(n);
+    });
+}
 var iniciar = function(){
 	$.getJSON("http://swapi.co/api/people/", datos);
+	$.getJSON("http://swapi.co/api/species/", especies);
 	$("#next").click(siguiente);
 	$("#prev").click(siguiente);
 	$("#people").on("click", ".about", datosPersonaje);
+	$("#mostrarEsp").change(mostrarPersonaje);
 }
 $(document).ready(iniciar);

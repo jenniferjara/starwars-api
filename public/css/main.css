@@ -13,3 +13,4 @@ body{
 .caja{margin: 6% 0%;}
 .img-star{width: 50%;}
 .about{cursor: pointer;}
+select{display: block;}
