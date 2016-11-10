@@ -21,8 +21,17 @@ var datos = function(response){
 	});
 	$("#people").html(personajes);
 	$("#next").attr("data-url", response.next);
+	$("#prev").attr("data-url",response.previous);
+
 	if(!response.next){
 		$("#next").fadeOut();
+	}else{
+		$("#prev").fadeIn();
+	}
+	if(!response.previous){
+		$("#prev").fadeOut();
+	}else{
+		$("#next").fadeIn();
 	}
 }
 var siguiente = function(e){
@@ -30,12 +39,14 @@ var siguiente = function(e){
 	var url = $(this).attr("data-url");
 	$.getJSON(url, datos);
 }
-var sigPersonaje = function(e){
+var datosPersonaje = function(e){
 	e.preventDefault();
+	alert("Hola!");
 }
 var iniciar = function(){
 	$.getJSON("http://swapi.co/api/people/", datos);
 	$("#next").click(siguiente);
-	$(".about").click(sigPersonaje);
+	$("#prev").click(siguiente);
+	$("#people").on("click", ".about", datosPersonaje);
 }
 $(document).ready(iniciar);
