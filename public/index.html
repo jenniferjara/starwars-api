@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Star Wars - SWAPI</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="shortcut icon" href="img/favicon.png">
+</head>
+<body>
+	<div class="container">
+		<div class="caja center-align">
+			<img class="img-star" src="img/star.png" alt="StarWars">
+		</div>
+		<div>
+			<!-- Dropdown Trigger -->
+			<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+
+			<!-- Dropdown Structure -->
+			<ul id='dropdown1' class='dropdown-content'>
+				<li><a href="#!">one</a></li>
+				<li><a href="#!">two</a></li>
+				<li class="divider"></li>
+				<li><a href="#!">three</a></li>
+			</ul>
+			<a id="next" class="btn-floating btn-large waves-effect waves-light black right">
+				<i class="material-icons">skip_next</i>
+			</a>
+			<a id="prev" class="btn-floating btn-large waves-effect waves-light black right">
+				<i class="material-icons">skip_previous</i>
+			</a>	
+			<h3 class="white-text">Total: <span id="total" class="yellow-text darken-1"></span></h3>
+		</div>
+		<div id="people" class="row">
+			<div class="col s12 m4">
+				<div class="card horizontal">
+					<div class="card-stacked">
+						<div class="card-content yellow darken-1">
+							<p class="white-text">Hi, my name <strong>Luke Skywalker</strong>.</p>
+						</div>
+						<div class="card-action">
+						<a class="yellow-text darken-1" href="#">See more about me</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

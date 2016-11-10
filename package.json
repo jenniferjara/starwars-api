@@ -1,0 +1,28 @@
+{
+  "name": "starswars",
+  "version": "1.0.0",
+  "description": "web que usa API de star wars",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "javascript",
+    "JSON",
+    "AJAX",
+    "jquery",
+    "star",
+    "wars"
+  ],
+  "author": "Jennifer Jara",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+
+  "repository": { 
+    "type": "git",
+    "url": "https://github.com/jenniferjara/starwars-api.git"
+  }
+}
