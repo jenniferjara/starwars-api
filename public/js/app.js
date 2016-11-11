@@ -1,11 +1,11 @@
 var template = '<div class="col s12 m4">'+
 					'<div class="card horizontal">'+
 						'<div class="card-stacked">'+
-							'<div class="card-content yellow darken-1">'+
+							'<div class="card-content yellow darken-3">'+
 								'<p class="white-text">Hi, my name <strong>{{name}}</strong>.</p>'+
 							'</div>'+
 							'<div class="card-action">'+
-								'<a class="about yellow-text darken-1" data-show-url="{{url}}">See more about me</a>'+
+								'<a class="about grey-text darken-4" data-show-url="{{url}}">See more about me</a>'+
 							'</div>'+
 						'</div>'+
 					'</div>'+
@@ -55,12 +55,12 @@ var especies = function(res){
 			console.log(direc);
 			d += direc.replace(n,"");
 		});
-		console.log(d);
+		/*console.log(d);*/
 		spe += opciones
-		.replace("{{num}}", d.substring(0,d.length-1))
+		.replace("{{num}}", d.substring(0, d.length-1))
 		.replace("{{name}}", espec.name);
 	});
-	console.log(spe);
+	/*console.log(spe);*/
 	$("#mostrarEsp").append(spe);
 }
 

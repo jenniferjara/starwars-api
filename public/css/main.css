@@ -10,7 +10,7 @@ body{
 	background-attachment: fixed;
 	background-position: center;
 }
-.caja{margin: 6% 0%;}
-.img-star{width: 50%;}
+.caja{margin: 6% 0% 3% 0%;}
+.img-star{width: 250px;}
 .about{cursor: pointer;}
 select{display: block;}
