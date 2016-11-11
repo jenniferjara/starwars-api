@@ -15,6 +15,7 @@ var opciones ='<option value="{{num}}">{{name}}</option>';
 
 var datos = function(response){
 	$("#total").text(response.results.length);
+	console.log(response);
 	var personajes = "";
 	$.each(response.results, function(i, personaje){
 		personajes+= template
@@ -61,10 +62,17 @@ var especies = function(res){
 	$("#mostrarEsp").append(spe);
 }
 var mostrarPersonaje = function(){
-	$("select option:selected").each(function() {
-      var n = "http://swapi.co/api/people/" + $(this).val();
-      console.log(n);
-    });
+    $.getJSON("http://swapi.co/api/people/" + $(this).val(), mostrarP);
+    /*function mostrarP (response){
+      	console.log(response);
+      	var contenido = "";
+      	$.each(response.results, function(i, pers){
+      		contenido+=template
+      		.replace("{{name}}", personaje.name)
+			.replace("{{url}}", personaje.url);
+      	});
+      	$("#masEsp").html(contenido);
+    }*/
 }
 var iniciar = function(){
 	$.getJSON("http://swapi.co/api/people/", datos);
@@ -72,6 +80,6 @@ var iniciar = function(){
 	$("#next").click(siguiente);
 	$("#prev").click(siguiente);
 	$("#people").on("click", ".about", datosPersonaje);
-	$("#mostrarEsp").change(mostrarPersonaje);
+	$(".container").on("change", "#mostrarEsp", mostrarPersonaje);
 }
 $(document).ready(iniciar);
