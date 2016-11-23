@@ -79,8 +79,8 @@ var mostrarPersonaje = function(){
 	}
 }
 var iniciar = function(){
-	$.getJSON("http://swapi.co/api/people/", datos);
-	$.getJSON("http://swapi.co/api/species/", especies);
+	$.getJSON("https://swapi.co/api/people/", datos);
+	$.getJSON("https://swapi.co/api/species/", especies);
 	$("#next").click(siguiente);
 	$("#prev").click(siguiente);
 	$("#people").on("click", ".about", datosPersonaje);
