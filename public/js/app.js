@@ -50,7 +50,7 @@ var especies = function(res){
 	var spe = "";
 	$.each(res.results, function(i, espec){
 		var d = "";
-		var n = "http://swapi.co/api/people/";
+		var n = "https://swapi.co/api/people/";
 		$.each(espec.people, function(i, direc){
 			console.log(direc);
 			d += direc.replace(n,"");
@@ -70,7 +70,7 @@ var mostrarPersonaje = function(){
 	var numDirec = $(this).val().split("/");
 	/*console.log(numDirec);*/
 	for(var i =0, l = numDirec.length; i<l; i++){
-   		$.getJSON("http://swapi.co/api/people/" + numDirec[i]+"/", function(resp){
+   		$.getJSON("https://swapi.co/api/people/" + numDirec[i]+"/", function(resp){
    			var cadaEsp = template
    							.replace("{{name}}", resp.name)
    							.replace("{{url}}", resp.url);
